@@ -223,7 +223,7 @@ const secureBooking = function () {
 };
 
 const booker = secureBooking();
-*/
+
 
 let f;
 const g = function () {
@@ -234,3 +234,4 @@ const g = function () {
 };
 
 g();
+*/
