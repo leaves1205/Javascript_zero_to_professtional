@@ -18,6 +18,8 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
+btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
+
 for (let i = 0; i < btnsOpenModal.length; i++)
   btnsOpenModal[i].addEventListener('click', openModal);
 
@@ -29,3 +31,68 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+//selecting elements
+console.log(document.documentElement);
+console.log(document.head);
+console.log(document.body);
+console.log(document.querySelector('.header'));
+const allSections = document.querySelectorAll('.section');
+console.log(allSections);
+
+document.getElementById('section--1');
+const allButtons = document.getElementsByTagName('button');
+console.log(allButtons);
+
+document.getElementsByClassName('btn');
+
+//creating and inserting elements
+// insertAdjacentHTML
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+message.innerHTML =
+  'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
+const header = document.querySelector('.header');
+header.prepend(message);
+// hearder.append(message.cloneNode(true));
+// header.after(message);
+document.body.append(message);
+//delete elements
+document
+  .querySelector('.btn--close-cookie')
+  .addEventListener('click', function () {
+    // message.remove();
+    message.parentElement.removeChild(message); //old way of removing elements
+  });
+//styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+console.log(message.style.color);
+console.log(message.style.backgroundColor);
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height.replace('px', '')) * 1.2 +
+  'px';
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+//Attributes
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+logo.setAttribute('company', 'Bankist');
+logo.getAttribute('src');
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+
+console.log(logo.dataset.versionNumber);
+
+//classes
+logo.classList.add('c', 'j');
+logo.classList.remove('c', 'j');
+logo.classList.toggle('c');
+logo.classList.contains('c');
