@@ -210,3 +210,19 @@ createImage('img/img-1.jpg')
   })
   .catch(err => console.error(err));
 */
+const whereAmI = async function (lat, lng) {
+  const response = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+  const data = await response.json();
+  console.log(data);
+  renderCountry(data[0], 'neighbour');
+};
+whereAmI(52.508, 13.381);
+console.log('FIRST');
+
+// try {
+//   let y = 1;
+//   const x = 2;
+//   const z = x + y;
+// } catch (err) {
+//   console.error(err);
+// }
